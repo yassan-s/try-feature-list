@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- htmlタグ以下全体をlayout という名前でフラグメント化 -->
+<!-- 個別画面(body部)のtitleタグとbodyタグの内容をパラメータとして受け取る -->
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="layout (title,body)">
 
 <head>
@@ -15,14 +17,18 @@
 
 </script> -->
 
+<!-- 個別画面のtitleタグの内容で置換 -->
 <title th:replace="${title}">タイトル</title>
 </head>
 
 <body>
+    <!-- th:replace属性を使用し、layout/headar.htmlのheaderフラグメントで置換 -->
     <div id="header" th:replace="~{layout/header :: header}"></div>
 
+    <!-- 個別画面のbodyタグ内のコンテンツで置換 -->
     <div id="body" th:replace="${body}"></div>
 
+    <!-- th:replace属性を使用し、layout/footer.htmlのfooterフラグメントで置換 -->
     <div id="footer" th:replace="~{layout/footer :: footer}"></div>
 </body>
 
